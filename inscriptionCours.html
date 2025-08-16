@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription au cours</title>
+    <link rel="stylesheet" href="inscriptionCours.css">
+</head>
+<body>
+    <div class="container">
+      <div id="register" class="section">
+        <div class="auth-page" style="margin: -2rem; min-height: 80vh">
+          <div class="auth-container">
+            <div class="auth-header">
+              <h1 id="courseTitle">Inscription au cours</h1>
+              <p id="courseDescription">Complétez vos informations</p>
+            </div>
+
+            <form id="formSubmit">
+              <input type="hidden" id="courseName" name="courseName">
+              
+              <div class="form-group">
+                <label for="nom">Nom</label>
+                <input type="text" id="nom" name="nom" required>
+              </div>
+
+              <div class="form-group">
+                <label for="prenom">Prénom</label>
+                <input type="text" id="prenom" name="prenom" required>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+
+              <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password" required>
+              </div>
+
+              <div class="form-group">
+                <label for="confirmPassword">Confirmer le mot de passe</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="adresse">Adresse</label>
+                <input type="text" id="adresse" name="adresse" required>
+
+              </div>
+               <div class="form-group">
+                <label for="telephone">Telephone</label>
+                <input type="tel" id="telephone" name="telephone" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="option">Option choisie</label>
+                <input type="text" id="option" name="option" required readonly>
+              </div>
+
+              <div style="text-align: center">
+                <button type="submit" class="btn" style="width: 100%">
+                  Valider l'inscription
+                </button>
+              </div>
+            </form>
+
+           
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+ <script>
+  // Fonction pour obtenir la page vidéo correspondant au cours
+  function getCourseVideoPage(courseName) {
+    const coursePages = {
+      "Macramé": "macrame.html",
+      "Maquillage": "maquillage.html",
+      "Cuisine": "cuisine.html",
+      "Crochet": "crochet.html",
+      "Décoration": "decoration.html",
+      "Onglerie": "onglerie.html",
+      "Sérigraphie": "serigraphie.html",
+      "Artisanat": "artisanat.html"
+    };
+    return coursePages[courseName] || null;
+  }
+
+  document.getElementById('formSubmit').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Validation des mots de passe
+    if (document.getElementById('password').value !== document.getElementById('confirmPassword').value) {
+      alert("Les mots de passe ne correspondent pas");
+      return;
+    }
+    
+    // Création de l'objet étudiant
+    const student = {
+      nom: document.getElementById('nom').value,
+      prenom: document.getElementById('prenom').value,
+      email: document.getElementById('email').value,
+      adresse: document.getElementById('adresse').value,
+      course: document.getElementById('option').value,
+      date: new Date().toLocaleDateString()
+    };
+    
+    // Enregistrement
+    let students = JSON.parse(localStorage.getItem('students') || '[]');
+    students.push(student);
+    localStorage.setItem('students', JSON.stringify(students));
+    
+    // Redirection vers les leçons vidéo
+    const videoPage = getCourseVideoPage(student.course);
+    if (videoPage) {
+      window.location.href = videoPage;
+    } else {
+      alert("Inscription confirmée !");
+      window.location.href = "cours.html";
+    }
+  });
+
+  // Initialisation
+  const urlParams = new URLSearchParams(window.location.search);
+  const course = decodeURIComponent(urlParams.get('course'));
+  
+  if (course) {
+    document.getElementById('courseTitle').textContent = `Inscription : ${course}`;
+    document.getElementById('option').value = course;
+    document.getElementById('courseName').value = course;
+  } else {
+    alert("Aucun cours sélectionné");
+    window.location.href = "cours.html";
+  }
+
+  
+</script>
+</body>
+</html>

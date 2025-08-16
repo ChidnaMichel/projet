@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier Étudiant</title>
+    <link rel="stylesheet" href="modifi.css">
+</head>
+<body>
+    <!-- Modal pour modification -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Modifier un Étudiant</h2>
+            <form id="editForm">
+                <div class="form-group">
+                    <label for="editNom">Nom:</label>
+                    <input type="text" id="editNom" required>
+                </div>
+                <div class="form-group">
+                    <label for="editPrenom">Prénom:</label>
+                    <input type="text" id="editPrenom" required>
+                </div>
+                <div class="form-group">
+                    <label for="editEmail">Email:</label>
+                    <input type="email" id="editEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="editTelephone">Téléphone:</label>
+                    <input type="tel" id="editTelephone" required>
+                </div>
+                <div class="form-group">
+                    <label for="editCours">Cours:</label>
+                    <select id="editCours" required>
+                        <option value="Décoration">Décoration</option>
+                        <option value="Macramé">Macramé</option>
+                        <option value="Onglerie">Onglerie</option>
+                        <option value="artisanat">Artisanat</option>
+                        <option value="serigraphie">Sérigraphie</option>
+                        <option value="maquillage">Maquillage</option>
+                        <option value="Crochet">Crochet</option>
+                        <option value="cuisine et patissrie">Cuisine et Pâtisserie</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="editDate">Date d'inscription:</label>
+                    <input type="date" id="editDate" required>
+                </div>
+                <button type="submit" class="btn">Enregistrer</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="modifie.js"></script>
+</body>
+</html>

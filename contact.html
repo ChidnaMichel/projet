@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Contact</title>
+    <link rel="stylesheet" href="contact.css">
+   
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h2>Formulaire de Contact</h2>
+            <p>Remplissez le formulaire ci-dessous pour nous contacter</p>
+        </header>
+        
+        <div class="form-container">
+            <form onsubmit="return validerFormulaire()">
+                <div class="input-group">
+                    <label for="nom">Nom :</label>
+                    <input type="text" id="nom" name="nom">
+                </div>
+                
+                <div class="input-group">
+                    <label for="prenom">Prénom :</label>
+                    <input type="text" id="prenom" name="prenom">
+                </div>
+                
+                <div class="input-group">
+                    <label for="adresse">Adresse :</label>
+                    <input type="text" id="adresse" name="adresse">
+                </div>
+                
+                <div class="input-group">
+                    <label for="telephone">Numéro de téléphone :</label>
+                    <input type="tel" id="telephone" name="telephone">
+                </div>
+                
+                <div class="input-group">
+                    <label for="responsable">Personne responsable :</label>
+                    <input type="text" id="responsable" name="responsable">
+                </div>
+                
+                <button type="submit" class="submit-btn">Envoyer</button>
+            </form>
+        </div>
+        
+        <div class="contact-info">
+            <div class="info-item">
+                <i>📞</i>
+                <span>(509)49369121></span>
+            </div>
+            <div class="info-item">
+                <i>✉</i>
+                <span>katchidecoleprofessionnelle@gmail.com</span>
+            </div>
+            <div class="info-item">
+                <i>🏢</i>
+                <span>Adresse : Madeline route village SOS, Cap-Haïtien, Haïti</span>
+            </div>
+        </div>
+    </div>
+
+   
+</body>
+<script src="contact.js"></script>
+</html>

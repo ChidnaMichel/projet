@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Cours - Formations professionnelles</title>
+    <link rel="stylesheet" href="cours.css">
+</head>
+<body>
+    <header>
+        <h1>Nos Cours Disponibles</h1>
+        <p>Découvrez nos formations professionnelles de qualité</p>
+        <div id="userInfo">Bienvenue</div>
+    </header>
+    
+    <div class="container">
+        <div class="cours-grid">
+            <!-- Carte 1: Décoration -->
+            <div class="cours-card">
+                <img src="Image\image/decoration.jpg" alt="Décoration" class="cours-img">
+                <div class="cours-content">
+                    <h2>Décoration</h2>
+                    <p>Apprenez les techniques de décoration intérieure, l'utilisation des couleurs, des textures et des matériaux pour créer des espaces harmonieux.</p>
+                   <button class="boutton" 
+        onclick="subscribe('Décoration')">
+    S'inscrire
+</button>
+                </div>
+            </div>
+            
+            <!-- Carte 2: Onglerie -->
+            <div class="cours-card">
+                <img src="Image\image/onglerie.jpg" alt="Onglerie" class="cours-img">
+                <div class="cours-content">
+                    <h2>Onglerie</h2>
+                    <p>Maîtrisez l'art des soins des ongles, du nail art et des techniques de pose de vernis semi-permanent et de capsules.</p>
+                    <button class="boutton" 
+        onclick="subscribe('Onglerie')">
+    S'inscrire
+</button>
+                </div>
+            </div>
+            
+            <!-- Carte 3: Macramé -->
+            <div class="cours-card">
+                <img src="Image\macrame.jpg" alt="Macramé" class="cours-img">
+                <div class="cours-content">
+                    <h2>Macramé</h2>
+                    <p>Créez des œuvres d'art avec des nœuds. Apprenez les techniques de base et avancées pour réaliser des suspensions, panneaux décoratifs et accessoires.</p>
+                    <button class="boutton" 
+        onclick="subscribe('Macramé')">
+    S'inscrire
+</button>
+                </div>
+            </div>
+            
+            <!-- Carte 4: Cuisine et Pâtisserie -->
+            <div class="cours-card">
+                <img src="Image\image/cuisine.jpg" alt="Cuisine" class="cours-img">
+                <div class="cours-content">
+                    <h2>Cuisine et Pâtisserie</h2>
+                    <p>Devenez un chef en cuisine et pâtisserie. Techniques de base, recettes traditionnelles et créations innovantes.</p>
+                    <button class="boutton" 
+        onclick="subscribe('Cuisine')">
+    S'inscrire
+</button>
+                </div>
+            </div>
+            
+            <!-- Carte 5: Maquillage -->
+            <div class="cours-card">
+                <img src="Image\may.jpg" alt="Maquillage" class="cours-img">
+                <div class="cours-content">
+                    <h2>Maquillage</h2>
+                    <p>Apprenez les techniques de maquillage professionnel pour tous les types d'événements et de peaux.</p>
+<button class="boutton" 
+        onclick="subscribe('Maquillage')">
+    S'inscrire
+</button>
+                </div>
+            </div>
+            
+            <!-- Carte 6: Sérigraphie -->
+            <div class="cours-card">
+                <img src="Image\image/serigraphie.jpg" alt="Sérigraphie" class="cours-img">
+                <div class="cours-content">
+                    <h2>Sérigraphie</h2>
+                    <p>Découvrez l'art de l'impression sérigraphique sur textile, papier et autres supports.</p>
+<button class="boutton" 
+        onclick="subscribe('Sérigraphie')">
+    S'inscrire
+</button>
+                </div>
+            </div>
+              <div class="cours-card">
+                <img src="Image\image/chapo.jpg" alt="Crochet" class="cours-img">
+                <div class="cours-content">
+                    <h2>Crochet</h2>
+                    <p>Apprenez les techniques de crochet pour créer des vêtements et accessoires.</p>
+<button class="boutton" 
+        onclick="subscribe('Crochet')">
+    S'inscrire
+</button>
+                </div>
+            </div>
+              <div class="cours-card">
+                <img src="Image\image/sandal.jpg" alt="Artisanat" class="cours-img">
+                <div class="cours-content">
+                    <h2>Artisanat</h2>
+                    <p>Apprenez les techniquespour  faire des sandales,des bijoux.</p>
+                    <button class="boutton" 
+        onclick="subscribe('Artisanat')">
+    S'inscrire
+</button>
+                </div>
+            </div>
+              <div class="cours-card">
+                <img src="Image\image/makup.jpg" alt="Maquillage" class="cours-img">
+                <div class="cours-content">
+                    <h2>Maquillage</h2>
+                    <p>Apprenez les techniques de maquillage professionnel pour tous les types d'événements et de peaux.</p>
+                   <!-- Exemple pour le cours de Décoration -->
+<button class="boutton" 
+        onclick="subscribe('Maquillage')">
+    S'inscrire
+</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <p class="pfooter"></p>
+        </div>
+    </footer>
+
+    <script>
+        // Vérifier si l'utilisateur est connecté
+        if (!localStorage.getItem('currentUser')) {
+            window.location.href = "connexion.html";
+        }
+        
+        // Afficher le nom de l'utilisateur
+        const user = JSON.parse(localStorage.getItem('currentUser'));
+        if (user) {
+            document.getElementById('userInfo').textContent = `Bienvenue, ${user.nom || user.email}`;
+        }
+
+        // Redirection vers la page d'inscription
+        function redirectToInscription(courseName) {
+            // Stocker le cours sélectionné
+            localStorage.setItem('selectedCourse', courseName);
+            // Rediriger
+            window.location.href = "inscriptionCours.html";
+        }
+        function subscribe(courseName) {
+    // Sauvegarder le cours sélectionné
+    localStorage.setItem('selectedCourse', courseName);
+    // Rediriger vers la page d'inscription
+    window.location.href = `inscriptionCours.html?course=${encodeURIComponent(courseName)}`;
+}
+    </script>
+</body>
+</html>
